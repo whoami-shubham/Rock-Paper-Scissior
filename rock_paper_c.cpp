@@ -37,6 +37,7 @@ int main(){
 
 void init_game(){
    Someone_Won = false;
+   system("cls");
 }
 void start_game(){
   int chance = 1;
@@ -56,7 +57,7 @@ void start_game(){
   //system("cls");
 }
 void user_chance(){
-   cout<<"Your Move : ";
+   cout<<"    Your Move : ";
    cin>>user_move;
 
 
@@ -64,18 +65,20 @@ void user_chance(){
 void computer_chance(){
   int index = rand()%3;
   computer_move = possible_moves[index];
-  cout<<"Computer's Move is : "<<possible_moves[index]<<endl;
+  cout<<"   Computer's Move is : "<<possible_moves[index]<<endl;
   string who = who_won();
   //cout<<who<<endl;
   if(who=="PC"){
     user_stats.push_back("You Lose !");
     computer_stats.push_back("You Won !");
+    cout<<"You Lose !"<<endl;
     Someone_Won = true;
   }
   else if(who=="I"){
     user_stats.push_back("You Won !");
     computer_stats.push_back("You Lose !");
     Someone_Won = true;
+    cout<<"   You Lose !"<<endl;
   }
   else{
      user_stats.push_back("Tie !");
@@ -102,8 +105,14 @@ string  who_won(){  // i didn't include all possible cases because that wasn't i
 }
 
 void show_stats(){
+  cout<<endl;
+  cout<<"      Playing Stats : "<<endl;
+  cout<<endl;
   int n = user_stats.size();
   for(int i=0;i<n;i++){
-    cout<<" | "<<user_stats[i]<<"      "<<computer_stats[i]<<" | "<<endl;
+    cout<<"    Match : "<<i+1<<" . "<<user_stats[i]<<"      "<<computer_stats[i]<<" | "<<endl;
   }
+  cout<<endl;
+  cout<<endl;
+  cout<<endl;
 }
