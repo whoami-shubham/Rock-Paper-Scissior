@@ -66,7 +66,7 @@ void computer_chance(){
   computer_move = possible_moves[index];
   cout<<"Computer's Move is : "<<possible_moves[index]<<endl;
   string who = who_won();
-  cout<<who<<endl;
+  //cout<<who<<endl;
   if(who=="PC"){
     user_stats.push_back("You Lose !");
     computer_stats.push_back("You Won !");
